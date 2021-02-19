@@ -1,0 +1,8 @@
+|portaEND4Entradas
+en13 => S6.IN0
+en14 => S6.IN1
+en15 => S6.IN1
+en16 => S6.IN1
+S6 <= S6.DB_MAX_OUTPUT_PORT_TYPE
+
+

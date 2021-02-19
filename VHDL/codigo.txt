@@ -1,0 +1,137 @@
+ENTITY portaOR3Entradas IS
+PORT(en0,en1,en2: IN BIT;
+		s1: OUT BIT
+		
+);
+END portaOR3Entradas;
+
+ARCHITECTURE comportamento OF portaOR3Entradas IS
+BEGIN
+
+s1 <= en0 or en1 or en2;
+END;
+//////////////////////////////////////////////////////////
+ENTITY portaOR2Entradas IS 
+PORT(en3,en4: IN BIT;
+		s2: OUT BIT	
+);
+END;
+
+ARCHITECTURE comportamento OF portaOR2Entradas IS
+BEGIN 
+s2 <= en3 or en4;
+END;
+
+//////////////////////////////////////////////////////////
+ENTITY portaOR4Entradas IS
+PORT(en5,en6,en7,en8:IN BIT;
+		s3:OUT BIT
+		
+);
+END portaOR4Entradas;
+ARCHITECTURE comportamento OF portaOR4Entradas IS
+BEGIN 
+	s3 <= en5 or en6 or en7 or en8;
+END;	
+/////////////////////////////////////////////////////////
+ENTITY portaEND2Entradas IS
+PORT(en8,en9:IN BIT;
+		s4:OUT BIT
+);
+END portaEND2Entradas;
+
+ARCHITECTURE comportamento OF portaEND2Entradas IS
+BEGIN
+	s4<= en8 and en9;
+END;
+//////////////////////////////////////////////////////////
+ENTITY portaEND3Entradas IS
+PORT(en10,en11,en12:IN BIT;
+		s5:OUT BIT
+);
+END portaEND3Entradas;
+
+ARCHITECTURE comportamento OF portaEND3Entradas IS
+BEGIN 
+	s5 <= en10 and en11 and en12;
+END;
+//////////////////////////////////////////////////////////
+ENTITY portaEND4Entradas IS
+PORT(en13,en14,en15,en16: IN BIT;
+		S6: OUT BIT
+);
+END portaEND4Entradas;
+ARCHITECTURE comportamento OF portaEND4Entradas IS
+BEGIN
+	s6 <= en13 and en14 and en15 and en16;
+END;
+/////////////////////////////////////////////////////////
+ENTITY portaNOT IS
+PORT(en17:IN BIT;
+		s7:OUT BIT
+);
+END portaNOT;
+ARCHITECTURE comportamento OF portaNOT IS 
+BEGIN 
+	s7<= not en17;
+END;
+//////////////////////////////////////
+ENTITY Circuito IS 
+PORT(A,B,C,D: IN BIT;
+		LO,NS: OUT BIT
+);
+END Circuito;
+ARCHITECTURE comportamento OF Circuito IS
+	SIGNAL c1:BIT; --	Saida NOT(A)
+	SIGNAL c2:BIT; -- Saida NOT(B)
+	SIGNAL c3:BIT; -- Saida NOT(C)
+	SIGNAL c4:BIT; -- Saida NOT(D)
+	-- LO
+	SIGNAL c5:BIT;	-- Saida BC
+	SIGNAL c6:BIT;	-- Saida bc3d
+	SIGNAL c7:BIT; -- Saida c2c3
+	SIGNAL c8:BIT; -- Saida c2c
+	SIGNAL c9:BIT; -- Saida c2 + c6 + c5
+	SIGNAL c10:BIT; -- Saida c9c1
+	SIGNAL C11:BIT; -- Saida c5 + c7
+	SIGNAL C12:BIT; -- Saida c11d
+	SIGNAL C13:BIT; -- Saida c12 + c8
+	SIGNAL C14:BIT; -- c13A
+	SIGNAL C15:BIT; -- Saida C10 + C13 (saida final)
+	-- NS
+	SIGNAL C16:BIT; -- ABc3
+	SIGNAL C17:BIT; -- ABc4
+	SIGNAL C18:BIT; -- Ac2c3c4
+	SIGNAL C19:BIT; -- c1Bc3c4
+	SIGNAL C20:BIT; -- c16+c17+c18+c20
+	-- Portas OR
+	COMPONENT portaOR3Entradas IS 
+		PORT(en0,en1,en2: IN BIT;
+		s1: OUT BIT);
+	END COMPONENT;	
+	COMPONENT portaOR2Entradas IS
+		PORT(en3,en4: IN BIT;
+		s2: OUT BIT	);
+	END COMPONENT;
+	COMPONENT portaOR4Entradas IS
+		PORT(en5,en6,en7,en8:IN BIT;
+		s3:OUT BIT);
+	END COMPONENT;
+	-- Porta END
+	COMPONENT portaEND2Entradas IS
+		PORT(en8,en9:IN BIT;
+		s4:OUT BIT);
+	END COMPONENT;
+	COMPONENT portaEND3Entradas IS
+		PORT(en10,en11,en12:IN BIT;
+		s5:OUT BIT);
+	END COMPONENT;
+	COMPONENT portaEND4Entradas IS
+		PORT(en13,en14,en15,en16: IN BIT;
+		S6: OUT BIT);
+	END COMPONENT;
+	-- PORTA NOT
+	COMPONENT portaNOT IS
+		PORT(en17:IN BIT;
+		s7:OUT BIT);
+	END COMPONENT				

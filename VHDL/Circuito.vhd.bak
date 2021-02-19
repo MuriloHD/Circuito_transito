@@ -1,0 +1,28 @@
+ENTITY Circuito IS 
+PORT(A,B,C,D: IN BIT;
+		LO,NS: OUT BIT
+);
+END Circuito;
+ARCHITECTURE comportamento OF Circuito IS
+	SIGNAL c1:BIT; --	Saida NOT(A)
+	SIGNAL c2:BIT; -- Saida NOT(B)
+	SIGNAL c3:BIT; -- Saida NOT(C)
+	SIGNAL c4:BIT; -- Saida NOT(D)
+	-- LO
+	SIGNAL c5:BIT;	-- Saida BC
+	SIGNAL c6:BIT;	-- Saida bc3d
+	SIGNAL c7:BIT; -- Saida c2c3
+	SIGNAL c8:BIT; -- Saida c2c
+	SIGNAL c9:BIT; -- Saida c2 + c6 + c5
+	SIGNAL c10:BIT; -- Saida c9c1
+	SIGNAL C11:BIT; -- Saida c5 + c7
+	SIGNAL C12:BIT; -- Saida c11d
+	SIGNAL C13:BIT; -- Saida c12 + c8
+	SIGNAL C14:BIT; -- c13A
+	SIGNAL C15:BIT; -- Saida C10 + C13 (saida final)
+	-- NS
+	SIGNAL C16:BIT; -- ABc3
+	SIGNAL C17:BIT; -- ABc4
+	SIGNAL C18:BIT; -- Ac2c3c4
+	SIGNAL C19:BIT; -- c1Bc3c4
+	SIGNAL C20:BIT; -- c16+c17+c18+c20

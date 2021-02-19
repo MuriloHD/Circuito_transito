@@ -1,0 +1,5 @@
+|portaNOT
+en17 => s7.DATAIN
+s7 <= en17.DB_MAX_OUTPUT_PORT_TYPE
+
+

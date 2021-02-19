@@ -1,0 +1,6 @@
+|portaOR2Entradas
+en3 => s2.IN0
+en4 => s2.IN1
+s2 <= s2.DB_MAX_OUTPUT_PORT_TYPE
+
+

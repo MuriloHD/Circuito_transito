@@ -1,0 +1,12 @@
+entity PortaOR2 is
+	port (en1,en2: IN BIT;
+			SaidaOR2: OUT BIT);
+End portaOR2;
+
+architecture behav of portOR2 is 
+begin
+SaidaOR2<= en1 or en2;
+			
+end;			
+					
+					
